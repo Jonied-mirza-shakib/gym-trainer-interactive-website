@@ -4,7 +4,7 @@ import './Blog.css'
 
 const Blog = () => {
     return (
-        <div className='container pt-5 pb-5'>
+        <div className='container pt-5 pb-5' style={{ height: '100vh' }}>
             <div className="row">
                 <div className="col-12">
                     <Accordion defaultActiveKey="0">

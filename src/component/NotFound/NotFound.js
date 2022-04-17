@@ -4,11 +4,12 @@ import notFoundImg from '../../image/notFound.jpg'
 
 const NotFound = () => {
     return (
-        <div>
-            <div className="container">
+        <div style={{ backgroundColor: 'aliceblue' }}>
+            <div className="container justify-content-center d-flex">
                 <div className="row">
                     <div className="col-12">
-                        <img src={notFoundImg} alt="" />
+                        <h3 className='text-center pt-2'>OPPSS!!!</h3>
+                        <img className='pt-5 pb-5' src={notFoundImg} alt="" />
                     </div>
                 </div>
             </div>
