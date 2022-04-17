@@ -1,0 +1,15 @@
+.banner-details {
+    margin-top: -190px;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.banner-details .banner-title {
+    color: antiquewhite;
+    font-size: 80px;
+}
+
+.banner-details p {
+    color: aliceblue;
+    font-size: 25px;
+}
