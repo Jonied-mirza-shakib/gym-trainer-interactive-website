@@ -1,0 +1,8 @@
+.login {
+    height: 100vh;
+    background-color: dimgrey;
+}
+
+.login .card {
+    margin: 0 auto;
+}
