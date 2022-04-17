@@ -20,8 +20,8 @@ const Header = () => {
                             navbarScroll
                         >
                             <Nav.Link className='text-light fs-5' as={Link} to="/">Home</Nav.Link>
-                            <Nav.Link className='text-light fs-5' as={Link} to="/about">About</Nav.Link>
                             <Nav.Link className='text-light fs-5' href='#service'>Service</Nav.Link>
+                            <Nav.Link className='text-light fs-5' as={Link} to="/about">About</Nav.Link>
                             <Nav.Link className='text-light fs-5' as={Link} to="/blog">Blog</Nav.Link>
                             <Nav.Link className='text-light fs-5' as={Link} to="/login">Login</Nav.Link>
                         </Nav>
