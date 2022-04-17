@@ -1,0 +1,13 @@
+.borders {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.borders .firs-border {
+    border: 1px solid green;
+}
+
+.borders .second-border {
+    border: 1px solid green;
+}

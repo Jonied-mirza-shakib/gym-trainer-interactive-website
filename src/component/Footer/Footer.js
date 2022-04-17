@@ -4,7 +4,7 @@ const Footer = () => {
     const date = new Date();
     let year = date.getFullYear()
     return (
-        <div className='footer p-3 text-center' style={{ backgroundColor: 'brown' }}>
+        <div className='footer text-center' style={{ backgroundColor: 'brown', paddingTop: '100px' }}>
             <div className="container">
                 <div className="row">
                     <div className="col-12">

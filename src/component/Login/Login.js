@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Login.css'
-import { useUpdatePassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [updatePassword, updating, updatPassError] = useUpdatePassword(auth);
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -26,9 +28,18 @@ const Login = () => {
         setEmail(event.target.value);
     }
 
-    const handlePassword = async event => {
+    const handlePassword = event => {
         setPassword(event.target.value)
-        await updatePassword(email);
+    }
+    const resetPassword = async () => {
+        // const email = setEmail(event.target.value);
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast('please enter your email address');
+        }
     }
     useEffect(() => {
         if (user) {
@@ -51,7 +62,7 @@ const Login = () => {
                         <div className="card">
                             <div className="card-body">
                                 <Form onSubmit={handleLoginform}>
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Group controlId="formBasicEmail">
                                         <Form.Label>Email address</Form.Label>
                                         <Form.Control onBlur={handleEmail} type="email" placeholder="Enter email" required />
                                     </Form.Group>
@@ -62,15 +73,14 @@ const Login = () => {
                                     </Form.Group>
                                     <input className='form-submit btn btn-primary' type="submit" value="Login" />
                                 </Form>
-                                <Button onClick={async () => {
-                                    await updatePassword(email);
-                                    alert('Updated password');
-                                }} variant="link">Reset password</Button>
+                                <p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
                                 <p style={{ color: 'red' }}>{error?.message}</p>
                                 {
                                     loading && <p>Loading...</p>
                                 }
                                 <p> Are You New Person? <span> <Link className='text-warning' to='/signUp' >Create an Account</Link></span> </p>
+                                <ToastContainer />
+                                <SocialLogin></SocialLogin>
                             </div>
                         </div>
                     </div>
