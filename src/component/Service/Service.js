@@ -16,7 +16,7 @@ const Service = () => {
                     <h1 className="text-center mb-5 text-light">HAVE A LOOK AT OUR SERVICES</h1>
                     {
                         service.map(services =>
-                            <div className="col-lg-4 mb-3">
+                            <div className="col-lg-4 mb-3" >
                                 <Card className="text-center text-light" style={{ backgroundColor: "darkcyan" }}>
                                     <Card.Img variant="top" src={services.image} />
                                     <Card.Body>
@@ -34,7 +34,7 @@ const Service = () => {
                     }
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

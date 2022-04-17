@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -27,10 +27,12 @@ const Login = () => {
     const handlePassword = event => {
         setPassword(event.target.value)
     }
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [navigate, user])
 
-    if (user) {
-        navigate(from, { replace: true });
-    }
 
     const handleLoginform = event => {
         event.preventDefault();

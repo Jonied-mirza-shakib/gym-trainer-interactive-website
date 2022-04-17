@@ -1,36 +1,36 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "image": "https://i.ibb.co/NxvzQvL/service-1.jpg",
         "details": "AEROBICS/ZUMBA",
         "description": "Groove and workout to trendy tunes"
     },
     {
-        "id": "2",
+        "id": 2,
         "image": "https://i.ibb.co/L8PCFqK/service-2.jpg",
         "details": "CROSSFIT TRAINING",
         "description": "High intensity workout with your friend"
     },
     {
-        "id": "3",
+        "id": 3,
         "image": "https://i.ibb.co/dfm0BPZ/service-3.jpg",
         "details": "CARDIO TRAINING",
         "description": "Lose that belly fat now"
     },
     {
-        "id": "4",
+        "id": 4,
         "image": "https://i.ibb.co/0FnjmS7/service-4.jpg",
         "details": "ENDURANCE TRAINING",
         "description": "Build your stamina with us today"
     },
     {
-        "id": "5",
+        "id": 5,
         "image": "https://i.ibb.co/Gk9tqW1/service-5.jpg",
         "details": "STRENGTH TRAINING",
         "description": "Gain muscle weight an mutants gym"
     },
     {
-        "id": "6",
+        "id": 6,
         "image": "https://i.ibb.co/N2BFZ85/service-6.jpg",
         "details": "WEIGHT LOSS",
         "description": "Loss access fat with personal training"
