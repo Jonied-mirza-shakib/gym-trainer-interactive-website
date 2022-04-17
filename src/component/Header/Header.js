@@ -7,7 +7,7 @@ import logo from '../../image/logo-color.png'
 const Header = () => {
     return (
         <div style={{ backgroundColor: '#420205' }}>
-            <Navbar expand="lg" className='navbar p-3'>
+            <Navbar expand="lg" className='navbar'>
                 <Container>
                     <Navbar.Brand href="#">
                         <img src={logo} alt="" />
