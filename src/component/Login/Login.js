@@ -3,12 +3,14 @@ import { Form, Button } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Login.css'
+import { useUpdatePassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [updatePassword, updating, updatPassError] = useUpdatePassword(auth);
     const [
         signInWithEmailAndPassword,
         user,
@@ -24,8 +26,9 @@ const Login = () => {
         setEmail(event.target.value);
     }
 
-    const handlePassword = event => {
+    const handlePassword = async event => {
         setPassword(event.target.value)
+        await updatePassword(email);
     }
     useEffect(() => {
         if (user) {
@@ -55,10 +58,14 @@ const Login = () => {
 
                                     <Form.Group className="mb-3" controlId="formBasicPassword">
                                         <Form.Label>Password</Form.Label>
-                                        <Form.Control onBlur={handlePassword} type="password" placeholder="Password" required />
+                                        <Form.Control onBlur={handlePassword} type="password" value={password} placeholder="Password" required />
                                     </Form.Group>
                                     <input className='form-submit btn btn-primary' type="submit" value="Login" />
                                 </Form>
+                                <Button onClick={async () => {
+                                    await updatePassword(email);
+                                    alert('Updated password');
+                                }} variant="link">Reset password</Button>
                                 <p style={{ color: 'red' }}>{error?.message}</p>
                                 {
                                     loading && <p>Loading...</p>

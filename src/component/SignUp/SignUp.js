@@ -13,14 +13,14 @@ const SignUp = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const [createUserWithEmailAndPassword, user, loading, hookError] = useCreateUserWithEmailAndPassword(auth)
+    const [createUserWithEmailAndPassword, user, loading, hookError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true })
     const handleName = event => {
         setName(event.target.value)
     }
     const handleEmailBlur = event => {
         setEmail(event.target.value);
     }
-
+    console.log(user)
     const handlePasswordBlur = event => {
         setPassword(event.target.value);
     }
@@ -29,9 +29,11 @@ const SignUp = () => {
         setConfirmPassword(event.target.value);
     }
 
-    if (user) {
-        navigate('/');
-    }
+    useEffect(() => {
+        if (user) {
+            navigate('/');
+        }
+    }, [navigate, user])
 
     const handleCreateUser = event => {
         event.preventDefault();
